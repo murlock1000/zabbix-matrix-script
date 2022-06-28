@@ -1,0 +1,24 @@
+{
+  "name": "matrix-js-bootstrap",
+  "version": "1.0.0",
+  "description": "Bootstraps more advanced e2ee features, such as cross-signing and SSSS for a matrix user.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murlock1000/matrix-js-bootstrap.git"
+  },
+  "author": "Paulius Jankauskas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murlock1000/matrix-js-bootstrap/issues"
+  },
+  "homepage": "https://github.com/murlock1000/matrix-js-bootstrap#readme",
+  "dependencies": {
+    "matrix-js-sdk": "^17.2.0",
+    "node-localstorage": "^2.2.1",
+    "olm": "https://packages.matrix.org/npm/olm/olm-3.2.1.tgz"
+  }
+}
