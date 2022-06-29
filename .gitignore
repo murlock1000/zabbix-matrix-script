@@ -130,4 +130,5 @@ dist
 .pnp.*
 
 config.txt
+config.json
 store/*
