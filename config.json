@@ -1,0 +1,5 @@
+{
+	"user_id": "@user:matrix.synapse",
+  	"user_password": "password",
+  	"homeserver_url": "http://localhost:8008"
+}
