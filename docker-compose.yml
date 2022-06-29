@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  zabbixmatrixscript:
+    image: zabbix-matrix-script
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production

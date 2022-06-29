@@ -1,4 +1,4 @@
-# matrix-js-bootstrap
+# zabbix-matrix-script
 Bootstraps more advanced e2ee features, such as cross-signing and SSSS for a matrix user.
 
 # Installation
