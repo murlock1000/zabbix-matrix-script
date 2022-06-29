@@ -2,7 +2,6 @@ global.Olm = require('olm');
 var sdk = require('matrix-js-sdk');
 var LocalStorage = require('node-localstorage');
 
-const enc = new TextEncoder();
 var localStorage = new LocalStorage.LocalStorage('./store');
 
 const ROOM_CRYPTO_CONFIG = { algorithm: 'm.megolm.v1.aes-sha2' };
@@ -26,6 +25,7 @@ async function initApp() {
 			await matrixClient.joinEncryptedRoom(config.internal_room_id);
 			await matrixClient.sendTextMessage("hello", config.internal_room_id);
 			await matrixClient.stopClient();
+			process.exit(0);
 		} else {
 			console.log(state);
 			process.exit(1);
@@ -46,7 +46,8 @@ async function initMatrixClient() {
 	let matrixClient = null;
 	// Create accessToken and exportedDevice if not exists
 	if (!accessToken || !exportedDevice) {
-		let userRegisterResult = await registerMatrixClient.loginWithPassword(config.user_id, config.user_password);
+		// Callback if failed to Login
+		let userRegisterResult = await registerMatrixClient.loginWithPassword(config.user_id, config.user_password, function (err, data) {if (err) {console.log(err+": Failed to login."); process.exit(1);}});
 		accessToken = userRegisterResult.access_token;
 		exportedDevice = userRegisterResult.device_id;
 		localStorage.setItem('accessToken', accessToken);
