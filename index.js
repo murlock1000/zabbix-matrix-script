@@ -6,13 +6,8 @@ var localStorage = new LocalStorage.LocalStorage('./store');
 
 const ROOM_CRYPTO_CONFIG = { algorithm: 'm.megolm.v1.aes-sha2' };
 
-
-const config ={
-	"passphrase":"VERYSECUREPASSPHRASE",
-	"user_id": "@user:matrix.synapse",
-  	"user_password": "password",
-  	"homeserver_url": "http://localhost:8008"
-}
+// Read in config from file
+var config = require('./config.json');
 
 
 async function initApp() {
@@ -122,4 +117,13 @@ function extendMatrixClient(matrixClient) {
 		)
 	}
 }
-initApp();
+try {
+	//var json = '{"aa":"aaa","bb":"bbb"}';
+	//console.log(JSON.parse(json));
+	var paramss = process.argv.slice(2);
+	console.log(paramss);
+	//console.log(params);
+  } catch (error) {
+	process.exit(1);
+}
+//initApp();
