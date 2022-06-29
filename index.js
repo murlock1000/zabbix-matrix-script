@@ -10,15 +10,16 @@ const ROOM_CRYPTO_CONFIG = { algorithm: 'm.megolm.v1.aes-sha2' };
 var config = require('./config.json');
 
 
-async function initApp() {
+async function initApp(to, subject, message) {
 	matrixClient = await initMatrixClient();
 
+	config.internal_room_id = to;
 	await matrixClient.startClient({ initialSyncLimit: 1 });
 	await matrixClient.once('sync', async function (state, prevState, res) {
 		if (state === 'PREPARED') {
 
 			await matrixClient.joinEncryptedRoom(config.internal_room_id);
-			await matrixClient.sendTextMessage("hello", config.internal_room_id);
+			await matrixClient.sendTextMessage(subject+'\n'+message, config.internal_room_id);
 			await matrixClient.stopClient();
 			process.exit(0);
 		} else {
@@ -117,13 +118,10 @@ function extendMatrixClient(matrixClient) {
 		)
 	}
 }
+
 try {
-	//var json = '{"aa":"aaa","bb":"bbb"}';
-	//console.log(JSON.parse(json));
-	var paramss = process.argv.slice(2);
-	console.log(paramss);
-	//console.log(params);
+	var params = process.argv.slice(2);
+	initApp.apply(this, params);
   } catch (error) {
 	process.exit(1);
 }
-//initApp();
