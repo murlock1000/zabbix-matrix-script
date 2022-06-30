@@ -22,7 +22,7 @@ Lastly, setup the Matrix E2EE media type for your zabbix user with `Send to` val
 
 Credentials in [`config.json`](config.json) are used only on first login. We use the device ID and token in the store for successive logins. This stops the server from generating a new device each time we send a message.
 
-#Dependencies 
+# Dependencies 
 1. [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk) for matrix communications.
 2. [JS Olm binding](https://gitlab.matrix.org/matrix-org/olm) for the E2EE implementation.
 3. [node-localstorage](https://www.npmjs.com/package/node-localstorage) as a replacement for Web Storage session store.
