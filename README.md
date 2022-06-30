@@ -26,3 +26,9 @@ Credentials in [`config.json`](config.json) are used only on first login. We use
 1. [matrix-js-sdk](https://github.com/matrix-org/matrix-js-sdk) for matrix communications.
 2. [JS Olm binding](https://gitlab.matrix.org/matrix-org/olm) for the E2EE implementation.
 3. [node-localstorage](https://www.npmjs.com/package/node-localstorage) as a replacement for Web Storage session store.
+
+# Docker support
+
+I found that the Olm library experienced issues with SSL verification when running the script on an Ubuntu 20.04 LTS machine. So I used an image created on a windows 10 machine. 
+This Image can be used by downloading it: `docker pull murlock1000/zabbixmatrixscript:latest`
+And running the launchDocker.sh instead of launch.sh script.
