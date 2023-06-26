@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/murlock1000/zabbix-matrix-script#readme",
   "dependencies": {
-    "matrix-js-sdk": "^17.2.0",
+    "matrix-js-sdk": "^24.1.0",
     "node-localstorage": "^2.2.1",
     "olm": "https://packages.matrix.org/npm/olm/olm-3.2.1.tgz"
   }
